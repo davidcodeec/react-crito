@@ -1,9 +1,10 @@
 import React from 'react'
+import OurServices from './OurServices/OurServices'
 
 const Body = () => {
   return (
     <main>
-        Main Tags
+        <OurServices/>
     </main>
   )
 }
