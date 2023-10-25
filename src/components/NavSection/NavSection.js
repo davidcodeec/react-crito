@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavSection.css';
-import Button from '../Generics/Button';
+import Button from './Generics/Button';
 import img_logotype from '../../assets/images/Logo.svg'
 
 const NavSection = () => {
