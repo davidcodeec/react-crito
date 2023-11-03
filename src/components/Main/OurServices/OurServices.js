@@ -1,7 +1,11 @@
 import React from 'react'
 import ServiceBox from './ServiceBox'
+import { useState } from 'react'
 
 const OurServices = () => {
+
+    {/* Using state for const getLatestNews */}
+    const [news,setNews] = useState([])
 
     const services = [
 
@@ -12,6 +16,33 @@ const OurServices = () => {
         
 
     ]
+
+
+    {/* Declaring const getLatestNews array for state */}
+    const getLatestNews = () => {
+
+      const newsList = [
+
+        { title:"Business Advice", discription:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.", url:"/services/businessadvice"},
+        { title:"Startup Business", discription:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.", url:"/services/startupbusiness"},
+        { title:"Financial Advice", discription:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.", url:"/services/financialadvice"},
+        { title:"Risk Management", discription:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.", url:"/services/riskmanagemnet"},
+        
+
+      ]
+
+      {/* Second value setNews of the state must always be declared this way to replace the value of setNews to be the array newList  */}
+      setNews(()=>{
+        let results = newsList
+        return results
+      })
+
+      // It can also be declared like this the easy way of replaces the value of setNews equal to the array....
+      // setNews(newsList)
+
+    }
+
+    
 
 
   return (
@@ -39,8 +70,18 @@ const OurServices = () => {
                 ))
               }
 
+
+               {/* The third way declare an array for newsList then map so it becomes a new object article created Also using State*/}
+
+               {
+                news.map((article, index) => (
+                    <ServiceBox key={index} title={article.title} discription={article.discription} url={article.url}/>
+                ))
+              }
+
             <div className="center-content">
               <a className="btn-black" href="projects.html">Browse Services<i className="fa-solid fa-arrow-up-right"></i></a>
+              <a onClick={getLatestNews} className="btn-black" >Get News From button<i className="fa-solid fa-arrow-up-right"></i></a>
             </div>
           </div>
 
